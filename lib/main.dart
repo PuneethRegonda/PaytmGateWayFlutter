@@ -16,6 +16,7 @@ class _MyAppState extends State<MyApp> {
   String orderId = DateTime.now().millisecondsSinceEpoch.toString();
 
   checkSum() async {
+    // I have included the php script also.  
     await http.post("https://promethean2k19.000webhostapp.com/paytmKit/generateChecksum.php",
         headers: {
            "Content-Type": "application/x-www-form-urlencoded"
@@ -35,6 +36,8 @@ class _MyAppState extends State<MyApp> {
       print(a.body);
       print(a.contentLength);
       print(a.headers);
+
+      ///literally i cant get how this callBackUrl works and y my generated Check is having lenght 109 
        String callBackUrl = 'https://securegw-stage.paytm.in/theia/paytmCallback?ORDER_ID=' + orderId;
 
        var paytmResponse = Paytm.startPaytmPayment(
